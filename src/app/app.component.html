@@ -1,0 +1,50 @@
+<!-- <h1>FormControl</h1>
+<label for="">Enter Email:
+  <input type="text" [formControl]="email">
+</label>
+<p>Display Value : {{email.value}}</p>
+<p><button (click)="updateEmail()">Click to epdate eamil.</button></p> -->
+
+<h1>FormGroup + FormControl</h1>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" >
+  <label>
+    First Name:
+    <input type="text" formControlName="firstName">
+  </label>
+  <label>
+    Last Name:
+    <input type="text" formControlName="lastName">
+  </label>
+  <label>
+    Age:
+    <input type="text" formControlName="age">
+  </label>
+  <label>
+    Email:
+    <input type="text" formControlName="email">
+  </label>
+
+  <div formGroupName="address">
+    <h2>Address</h2>
+    <label>
+      Address 1:
+      <input type="text" formControlName="address1">
+    </label>
+    <label>
+      Address 2:
+      <input type="text" formControlName="address2">
+    </label>
+    <label>
+      City:
+      <input type="text" formControlName="city">
+    </label>
+    <label>
+      Zip:
+      <input type="text" formControlName="zip">
+    </label>
+
+  </div>
+
+  <button type="submit" [disabled]="!userForm.valid">Submit</button>
+<div><button (click)="updatePartially()">Update Partially</button></div>
+</form>
